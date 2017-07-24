@@ -21,6 +21,13 @@ instead you can get the packages that are listed in environment.txt with your fa
 conda create --name <env> --file environment.txt
 ````
 
+After the environment is created, you can activate the environment:
+
+````
+source activate <env>
+````
+
+
 In the conda environment, you can use standard package management tool (pip) for python to install coremltools:
 
 ````
@@ -32,3 +39,15 @@ Now you can launch jupyter to go through the notebook:
 ````
 jupyter-notebook 
 ````
+
+After you have done with your work, you can deactivate the environment:
+
+````
+source deactivate <env>
+````
+
+## Notes
+
+coremltools install command gave the error in the first try; however, running the command second time
+fixed the issue.
+

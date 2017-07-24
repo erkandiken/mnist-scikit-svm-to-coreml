@@ -10,7 +10,7 @@ function usually called by our neural network code.
 
 #### Libraries
 # Standard library
-import cPickle
+import pickle as cPickle
 import gzip
 
 # Third-party libraries

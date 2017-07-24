@@ -8,6 +8,3 @@ __pycache__/
 
 # core ml model
 *.mlmodel
-
-# data
-/data/

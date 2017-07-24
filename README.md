@@ -34,13 +34,13 @@ In the conda environment, you can use standard package management tool (pip) for
 pip install -U coremltools
 ````
 
-Now you can launch jupyter to go through the notebook:
+Now you can launch jupyter to go through the notebook. 
 
 ````
 jupyter-notebook 
 ````
 
-After you have done with your work, you can deactivate the environment:
+After you have done with running jupyter notebook, you can deactivate the environment:
 
 ````
 source deactivate <env>
@@ -48,6 +48,22 @@ source deactivate <env>
 
 ## Notes
 
-coremltools install command gave the error in the first try; however, running the command second time
+1. coremltools install command gave an error in the first try; however, running the command second time
 fixed the issue.
 
+2. Make sure that jupyter notebook runs in python 2 environment. mnist_loader.py uses pickle, and the way
+pickle is used requires some minor changes depending on the python version 2 and 3. 
+The current mnist_loader.py should work well with python 2.
+
+3. When trying to convert scikit-learn svm model to core ml model, you might get the following error:
+ 
+````
+RuntimeError: Got non-zero exit code 72 from xcrun. Output was: xcrun: error: unable to find utility "coremlcompiler", not a developer tool or in PATH
+````
+
+In order to fix it, you need to install Xcode 9 (beta) from Apple developer site and and set the path:
+
+````
+xcode-select --print-path (check the version of xcode currently used)
+sudo xcode-select --switch /Applications/Xcode-beta.app/Contents/Developer (set the path to xcode-beta)
+````

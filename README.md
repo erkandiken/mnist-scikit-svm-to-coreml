@@ -45,6 +45,16 @@ After you have done with running jupyter notebook, you can deactivate the enviro
 ````
 source deactivate <env>
 ````
+## Core ML format
+If you have Xcode 9 installed on your system, you can see that "digit_recognizer.mlmodel" is recognized and market 
+with the following icon. 
+
+![alt text](figures/core_ml.png "")
+ 
+You can drag and drop the following model in a Xcode project to include and use the model in your app. Or directly 
+click on the open to see the model specs:
+
+![alt text](figures/mlmodel_specs.png "")
 
 ## Notes
 

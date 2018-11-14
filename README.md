@@ -12,29 +12,25 @@ This tutorial goes through:
 
 We use coremeltools to convert scikit-learn model to coreml format: https://pypi.python.org/pypi/coremltools
 
-Currently, coremltools is available only for python 2.7. That's why our environment is based on python 2.7.
-You can use the following command to create conda environment. You just need to replace < env > with the name you prefer
-for the environment name. I assume that you have anaconda installed in your system. If you do not prefer to use conda, 
-instead you can get the packages that are listed in environment.txt with your favorite package manager.
+You can use the following commands to create your environment. You just need to replace < projectname > with the name you prefer
+for the environment. Pay attention that venv works only with python version 3. I used python 3.6
 
 ````
-conda create --name <env> --file environment.txt
+$ python -m venv projectname
+$ source projectname/bin/activate
+(venv) $ pip install  jupyter
+(venv) $ pip install ipykernel
+(venv) $ ipython kernel install --user --name=projectname
+(venv) $ pip install -r requirements.txt
 ````
 
-After the environment is created, you can activate the environment:
-
-````
-source activate <env>
-````
-
-
-In the conda environment, you can use standard package management tool (pip) for python to install coremltools:
+To update coremltools:
 
 ````
 pip install -U coremltools
 ````
 
-Now you can launch jupyter to go through the notebook. 
+Now you can launch jupyter notebook to go through the notebook.
 
 ````
 jupyter-notebook 
@@ -43,7 +39,7 @@ jupyter-notebook
 After you have done with running jupyter notebook, you can deactivate the environment:
 
 ````
-source deactivate <env>
+deactivate
 ````
 ## Core ML format
 If you have Xcode 9 installed on your system, you can see that "digit_recognizer.mlmodel" is recognized and market 
@@ -61,11 +57,7 @@ click on the open to see the model specs:
 1. coremltools install command gave an error in the first try; however, running the command second time
 fixed the issue.
 
-2. Make sure that jupyter notebook runs in python 2 environment. mnist_loader.py uses pickle, and the way
-pickle is used requires some minor changes depending on the python version 2 and 3. 
-The current mnist_loader.py should work well with python 2.
-
-3. When trying to convert scikit-learn svm model to core ml model, you might get the following error:
+2. When trying to convert scikit-learn svm model to core ml model, you might get the following error:
  
 ````
 RuntimeError: Got non-zero exit code 72 from xcrun. Output was: xcrun: error: unable to find utility "coremlcompiler", not a developer tool or in PATH
